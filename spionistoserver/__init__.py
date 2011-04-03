@@ -1,5 +1,8 @@
+from pyramid.authentication import AuthTktAuthenticationPolicy
+from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid.config import Configurator
 from repoze.zodbconn.finder import PersistentApplicationFinder
+
 from spionistoserver.models import appmaker
 
 def main(global_config, **settings):
@@ -12,7 +15,15 @@ def main(global_config, **settings):
     finder = PersistentApplicationFinder(zodb_uri, appmaker)
     def get_root(request):
         return finder(request.environ)
-    config = Configurator(root_factory=get_root, settings=settings)
+    
+    authentication_policy = AuthTktAuthenticationPolicy('seekrit')
+    authorization_policy = ACLAuthorizationPolicy()
+    
+    config = Configurator(root_factory=get_root, 
+                          settings=settings,
+                          authentication_policy = authentication_policy,
+                          authorization_policy = authorization_policy)
+    
     config.add_static_view('static', 'spionistoserver:static')
     config.scan('spionistoserver')
     return config.make_wsgi_app()
