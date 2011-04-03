@@ -16,7 +16,7 @@ requires = [
     ]
 
 setup(name='spionisto.server',
-      version='0.0',
+      version='0.1',
       description='spionisto.server',
       long_description=README + '\n\n' +  CHANGES,
       classifiers=[
