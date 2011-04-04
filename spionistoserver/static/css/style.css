@@ -134,11 +134,21 @@ nav ul, nav ul li{
 	display:inline;
 }
 
-nav a{
+nav a,
+nav a:link,
+nav a:visited{
 	padding:20px;
 	color:white;
 	text-decoration:none;
 	background-color:#e44d26;
+}
+nav a:hover {
+  text-shadow: 1px 1px 1px #333333;
+  filter: dropshadow(color=#333333, offx=1, offy=1);   
+}
+
+nav li.selected a {
+  border-top: 3px solid;
 }
 
 aside{

@@ -37,9 +37,13 @@
 			<metal:topnav define-slot="topnav_slot">
 			<nav>
 				<ul>
-					<li><a href="#">Manager</a></li>
-					<li><a href="#">Viewer</a></li>
-					<li><a href="#">Settings</a></li>
+					<li tal:attributes="class python: request.view_name=='' and 'selected'">
+						<a href="#">Viewer</a></li>
+					<li tal:attributes="class python: request.view_name=='manager' and 'selected'">
+						<a href="#">Manager</a></li>
+					<li tal:attributes="class python: request.view_name=='settings' and 'selected'">
+						<a href="#">Settings</a></li>
+					<li><a href="/logout">Logout</a></li>
 				</ul>
 			</nav>
 			</metal:topnav>
