@@ -53,10 +53,11 @@
 		<metal:aside define-slot="aside_slot">
 		<aside>
 			<h3>System status</h3>
+			<p id="time_update">Last update: <span> Loading ...</span></p>
 			<ul id="status-panel">
-			  <li>Registered Cameras: <a href="/list/registered">10</a></li>
-			  <li>Online Cameras:<a href="/list/online">9</a></li>
-			  <li>Cameras Recording:<a href="/list/recording">3</a></li>
+			  <li id="registered_cameras">Registered Cameras: <a href="/list/registered">--</a></li>
+			  <li id="online_cameras">Online Cameras:<a href="/list/online">--</a></li>
+			  <li id="cameras_recording">Cameras Recording:<a href="/list/recording">--</a></li>
 			</ul>
 		</aside>
 		</metal:aside>

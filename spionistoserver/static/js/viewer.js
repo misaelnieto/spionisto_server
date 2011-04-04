@@ -1,6 +1,18 @@
 // execute your scripts when the DOM is ready. this is mostly a good habit
 $(function() {
+    //Load system_information
+    $.ajax({
+      url: '/@@system_status',
+      dataType: 'json',
+      success: function(data){
+          $('p#time_update span').html(data.last_update);
+          $('li#registered_cameras a').html(data.registered_cameras);
+          $('li#online_cameras a').html(data.online_cameras);
+          $('li#cameras_recording a').html(data.cameras_recording);
+      }
+    });
 
+    
 	// initialize scrollable
 	$(".scrollable").scrollable();
 
@@ -39,5 +51,4 @@ $(function() {
 	
 	// when page loads simulate a "click" on the first image
 	}).filter(":first").click();
-
 });
