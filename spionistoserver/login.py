@@ -1,5 +1,6 @@
 from pyramid.httpexceptions import HTTPFound
 
+from pyramid.renderers import get_renderer
 from pyramid.response import Response
 from pyramid.security import forget
 from pyramid.security import remember
@@ -30,8 +31,11 @@ def login(context,request):
             return HTTPFound(location = came_from,
                              headers = headers)
         message = 'Incorrect user name or password.'
-
+        
+    #Get master template
+    master_template =  get_renderer('templates/master.pt').implementation()
     return dict(
+        master_template = master_template,
         message = message,
         url = request.application_url + '/login',
         came_from = came_from,
