@@ -1,0 +1,91 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]--><!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]--><!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]--><!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!--> 
+<html lang="en" 
+	  class="no-js" 
+	  xmlns="http://www.w3.org/1999/xhtml" 
+	  xml:lang="en"
+	  xmlns:tal="http://xml.zope.org/namespaces/tal"> <!--<![endif]--><head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Spionisto surveillance software</title>
+	<meta name="description" content="Surveilance software for IP Cameras">
+	<meta name="author" content="Noe Nieto">
+	<meta name="keywords" content="python web application surveillance software" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" href="${request.static_url('spionistoserver:static/img/favicon.ico')}">
+	<link rel="apple-touch-icon" href="${request.static_url('spionistoserver:static/img/apple-touch-icon.png')}">
+	<link rel="stylesheet" href="${request.static_url('spionistoserver:static/css/style.css?v=2')}">
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<style type="text/css">
+	form#login {
+    background-color: #F16529;
+    border-bottom: 20px solid #E44D26;
+    box-shadow: 0 0 40px -10px #333333;
+    color: white;
+    margin-bottom: 50px;
+    padding: 20px;
+    width: 35%;
+	}
+	form#login label{
+	  display:block;
+	  margin-left: 1em;
+	}
+	form#login input{
+	  width: 250px;
+	  margin-left: 1em;
+	  border: 0px transparent none;
+	}
+	form#login input:focus, 
+	form#login input:hover{
+    -webkit-box-shadow: 1px 1px 5px #000000;
+      - moz-box-shadow: 1px 1px 5px #000000;
+            box-shadow: 1px 1px 5px #000000;
+  } 
+	form#login input[type='submit']{
+	  width: auto;
+	  margin: 1em;
+	  margin-left: 15px;
+	  padding: 0.5em;
+	  color: #000;
+	  background: #fff;
+	}
+	</style></head>
+<body>	<div id="header-container">
+		<header class="wrapper">
+		<img src="${request.static_url('spionistoserver:static/img/logo.png')}" alt="Surveillance Software" />
+			<h1 id="title">Spionisto</h1>
+		</header>
+	</div>
+	<div id="main" class="wrapper">
+    <h2>Welcome to Spionisto</h2>
+    <p>Please, login below</p>
+    <form id="login" name="login" method="post" action="${url}">
+	  <input type="hidden" name="came_from" value="${came_from}"/>
+      <p>
+        <label for="username">User Name:</label>
+        <input name="username" type="text" id="username" maxlength="15" 
+			   value="${login}"/>
+      </p>
+      <p>
+        <label for="password">Pasword:</label>
+        <input name="password" type="password" id="password" maxlength="10" 
+			   value="${password}"/>
+      </p>
+      <input name="form.submitted" type="submit" value="Login">
+    </form>
+	</div>
+	<div id="footer-container">
+		<footer class="wrapper">
+			<h3>By <a href="http://noenieto.com">Noe Nieto</a></h3>
+		</footer>
+	</div>
+	<!--[if lt IE 7 ]>
+	<script src="js/libs/dd_belatedpng.js"></script>
+	<script> DD_belatedPNG.fix('img, .png_bg');</script>
+	<![endif]--></body>
+</html>

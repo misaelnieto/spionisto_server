@@ -11,6 +11,7 @@ requires = [
     'repoze.zodbconn',
     'repoze.tm2>=1.0b1', # default_commit_veto
     'repoze.retry',
+    'repoze.folder',
     'ZODB3',
     'WebError',
     ]

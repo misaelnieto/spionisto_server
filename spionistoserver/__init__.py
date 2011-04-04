@@ -4,6 +4,7 @@ from pyramid.config import Configurator
 from repoze.zodbconn.finder import PersistentApplicationFinder
 
 from spionistoserver.models import appmaker
+from spionistoserver.security import groupfinder
 
 def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
@@ -16,7 +17,8 @@ def main(global_config, **settings):
     def get_root(request):
         return finder(request.environ)
     
-    authentication_policy = AuthTktAuthenticationPolicy('seekrit')
+    authentication_policy = AuthTktAuthenticationPolicy('vof5934d',
+                                                        callback = groupfinder)
     authorization_policy = ACLAuthorizationPolicy()
     
     config = Configurator(root_factory=get_root, 

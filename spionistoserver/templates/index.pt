@@ -23,7 +23,7 @@
 	<![endif]--></head>
 <body>	<div id="header-container">
 		<header class="wrapper">
-		<img src="img/logo.png" alt="Surveillance Software" />
+		<img src="${request.static_url('spionistoserver:static/img/logo.png')}" alt="Surveillance Software" />
 			<h1 id="title">Spionisto</h1>
 			<nav>
 				<ul>
