@@ -54,6 +54,18 @@
 	  color: #000;
 	  background: #fff;
 	}
+	div#message{
+	  display: block;
+    left: 700px;
+    position: absolute;
+    top: 395px;
+    background-color: #F16529;
+    border-bottom: 20px solid #E44D26;
+    box-shadow: 0 0 40px -10px #333333;
+    color: white;
+    font-size: 14px;
+    padding: 1em;
+	}
 	</style></head>
 <body>	<div id="header-container">
 		<header class="wrapper">
@@ -76,8 +88,11 @@
         <input name="password" type="password" id="password" maxlength="10" 
 			   value="${password}"/>
       </p>
-      <input name="form.submitted" type="submit" value="Login">
+      <input name="form.submitted" type="submit" value="Login" />
     </form>
+
+    <div id="message" tal:condition="message">${message}</div>
+	
 	</div>
 	<div id="footer-container">
 		<footer class="wrapper">

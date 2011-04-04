@@ -29,7 +29,7 @@ def login(context,request):
             headers = remember(request, username)
             return HTTPFound(location = came_from,
                              headers = headers)
-        message = 'Failed login'
+        message = 'Incorrect user name or password.'
 
     return dict(
         message = message,
